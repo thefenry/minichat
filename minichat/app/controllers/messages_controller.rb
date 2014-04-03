@@ -4,6 +4,13 @@ class MessagesController < ApplicationController
 	end
 	
 	def create
-		@messages = Message.create!(params[:message])
+		debugger
+		@messages = Message.create!(message_params)
+	end
+
+	private 
+
+	def message_params
+		params.require(:message).permit(:content)
 	end
 end
