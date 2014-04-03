@@ -1,0 +1,10 @@
+<ul id="chat">
+  <% if @message %>
+  	<%= render 'message', message: @message %>
+  <% end %>
+</ul>
+
+<%= form_for Message.new, :remote => true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "Send" %>
+<% end %>
