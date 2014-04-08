@@ -4,8 +4,7 @@ class MessagesController < ApplicationController
 	end
 	
 	def create
-		debugger
-		@messages = Message.create!(message_params)
+		@message = Message.create!(message_params)
 	end
 
 	private 

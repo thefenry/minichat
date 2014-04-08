@@ -82,6 +82,7 @@ ul#chat {
   border: solid 1px #777;
   margin: 5px 0;
   overflow: auto;
+  background-color: #FFF;
 }
 
 ul#chat li {
