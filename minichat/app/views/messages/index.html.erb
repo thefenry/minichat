@@ -1,7 +1,5 @@
 <ul id="chat">
-  <% if @messages %>
-  	<%= render 'message', messages: @messages %>
-  <% end %>
+  <%= render @messages %>
 </ul>
 
 <%= form_for Message.new, :remote => true do |f| %>
