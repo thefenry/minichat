@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 	end
 	
 	def create
-		@messages = Message.create(message_params)
+		@message = Message.create!(message_params)
 	end
 
 	private 
