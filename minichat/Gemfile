@@ -46,3 +46,11 @@ gem 'debugger', group: [:development, :test]
 
 gem 'faye'
 gem 'thin'
+
+group :test do
+	gem 'rspec-rails'
+	gem 'faker'
+	gem 'capybara'
+	gem 'factory_girl_rails'
+	gem 'database_cleaner'
+end
