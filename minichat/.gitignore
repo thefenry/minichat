@@ -18,4 +18,4 @@
 config/database.yml
 
 config/initializers/faye_token.rb
-
+Gemfile.lock
