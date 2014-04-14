@@ -46,6 +46,7 @@ gem 'debugger', group: [:development, :test]
 
 gem 'faye'
 gem 'thin'
+gem 'pry'
 
 group :test do
 	gem 'rspec-rails'
