@@ -1,19 +1,26 @@
 require 'spec_helper'
 
 describe UsersController do 
-
+	let(:user) { create :user }
+	let(:attribs) { attributes_for :user }
 	context '#new' do
 		it 'should load login page' do 
 			get :new
 			expect(response).to be_ok
 		end
 
-		it 'should assign @user to new user'
+		it 'should assign @user to new user' do 
+			get :new
+			expect(assigns(:user)).to be_a_new(User)
+		end
 	end
 
 	context '#create' do
 		context 'with valid attributes' do
-			it 'should redirect user'
+			it 'should redirect user' do 
+				post :create, :user => attribs 
+				expect(response).to be_redirect
+			end
 
 			it 'should increate User count by one'
 		end
