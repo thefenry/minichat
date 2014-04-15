@@ -5,12 +5,16 @@ class UsersController < ApplicationController
 
 	def create
 		user = User.new(create_params)
-		user.save
+		if user.save
+			redirect_to messages_path 
+		else
+			render :new
+		end
 	end
 
 	private
 
 	def create_params
-		params.require(:user).permit(:username, :password, :password_confirmation, :password_digest, :email)
+		params.require(:user).permit(:username, :password, :password_confirmation, :email)
 	end
 end

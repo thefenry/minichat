@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe UsersController do 
-
+	let(:user) { create :user }
+	let(:attribs) { attributes_for :user }
 	context '#new' do
 		it 'should load login page' do 
 			get :new
@@ -17,6 +18,7 @@ describe UsersController do
 	context '#create' do
 		context 'with valid attributes' do
 			it 'should redirect user' do 
+				post :create, :user => attribs 
 				expect(response).to be_redirect
 			end
 
