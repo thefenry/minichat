@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe UsersController do 
-	let(:user) { create :user }
 	let(:attribs) { attributes_for :user }
+	let(:invalid_attribs) {invalid_attribs ={ :email => Faker::Internet.free_email, :username => Faker::Lorem.word,
+    :password => '12345', :password_confirmation => '1234'}}
 	context '#new' do
 		it 'should load login page' do 
 			get :new
@@ -22,13 +23,20 @@ describe UsersController do
 				expect(response).to be_redirect
 			end
 
-			it 'should increate User count by one'
+			it 'should increate User count by one' do 
+				expect{post :create, :user => attribs }.to change{ User.count }.by 1
+			end
 		end
 		
 		context 'with invalid attributes' do
-			it 'should not redirect'
+			it 'should not redirect' do 
+				post :create, :user => invalid_attribs
+				expect(response).to_not be_redirect
+			end
 
-			it 'should not increase user count by one'
+			it 'should not increase user count by one' do
+				expect{ post :create, :user => invalid_attribs }.to_not change { User.count}.by 1
+			end
 		end
 	end
 end
