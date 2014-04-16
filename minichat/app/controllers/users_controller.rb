@@ -4,8 +4,8 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		user = User.new(create_params)
-		if user.save
+		@user = User.new(create_params)
+		if @user.save
 			redirect_to messages_path 
 		else
 			render :new
