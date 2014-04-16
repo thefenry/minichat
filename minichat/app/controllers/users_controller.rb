@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(create_params)
 		if @user.save
+			login(@user)
 			redirect_to messages_path 
 		else
 			render :new
