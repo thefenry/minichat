@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+	# before_filter :authorized?
 	def index
 		@messages = Message.all
 	end

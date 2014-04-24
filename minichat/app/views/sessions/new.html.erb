@@ -1,9 +1,15 @@
-<h3>Log in to join the conversation </h3>
-<%= flash[:errors] %>
-<%= form_tag sessions_path do%>
-	<%= label_tag :username %>
-	<%= text_field_tag :username %>
-	<%= label_tag :password %>
-	<%= password_field_tag :password %>
-	<%= submit_tag "login" %>
-<% end %>
+<div class="signUpLink">
+	<%= link_to "Sign up", signup_path %>
+</div>
+
+<div class="loginform">
+	<h3>Log in to join the conversation </h3>
+	<%= flash[:errors] %>
+	<%= form_tag sessions_path do%>
+		<%= label_tag :username %>
+		<%= text_field_tag :username %>
+		<%= label_tag :password %>
+		<%= password_field_tag :password %>
+		<%= submit_tag "login" %>
+	<% end %>
+</div>
